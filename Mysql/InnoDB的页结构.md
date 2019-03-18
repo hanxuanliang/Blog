@@ -24,7 +24,7 @@
 
 在页的7个组成部分中，我们自己存储的记录会按照我们指定的`行格式`存储到`User Records`部分。但是在一开始生成页的时候，其实是没有`User Records`部分，而每当我们插入一条数据记录，都会从`Free Space`里面抽一部分划分到`User Records`部分，当`Free Space`部分的空间全部被`User Records`部分替代掉之后，也就意味着这个页使用完了，如果还有新的记录插入的话，就需要去申请新的页了，以下是插入过程的图示：
 
-![\Pic\新建一条数据](..\Pic\新建一条数据.jpg)
+![](https://github.com/hanxuanliang/Blog/blob/master/Pic/新建一条数据.jpg)
 
 为了更好地管理在`User Records`中的这些记录，`InnoDB`费了一番力气！难道不就是把记录按照指定的行格式一条一条摆在`User Records`部分么？其实这话还得从记录行格式的`记录头信息`中说起。
 
