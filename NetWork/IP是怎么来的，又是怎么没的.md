@@ -61,7 +61,7 @@ sudo ifconfig eth1 up
 
 新来的机器使用 **IP 地址 0.0.0.0** 发送了一个**广播包**，**目的 IP 地址为 255.255.255.255**。广播包封装了 UDP，UDP 封装了 BOOTP。其实 DHCP 是 BOOTP 的增强版，但是如果你去抓包的话，很可能看到的名称还是 BOOTP 协议。
 
-![](https://github.com/hanxuanliang/Blog/blob/master/Pic/DHCP Discover.jpg)
+![](https://github.com/hanxuanliang/Blog/blob/master/Pic/DHCP-Discover.jpg)
 
 如果一个网络管理员在网络里面配置了**DHCP Server**的话，他就相当于这些 IP 的管理员。他立刻能知道来了一个“新人”。这个时候，我们可以体会 MAC 地址唯一的重要性了。当一台机器带着自己的 MAC 地址加入一个网络的时候，MAC 是它唯一的身份，如果连这个都重复了，就没办法配置了。
 
@@ -69,13 +69,13 @@ sudo ifconfig eth1 up
 
 DHCP Offer 的格式就像这样，里面有给新人分配的地址。
 
-![](https://github.com/hanxuanliang/Blog/blob/master/Pic/DHCP Offer.jpg)
+![](https://github.com/hanxuanliang/Blog/blob/master/Pic/DHCP-Offer.jpg)
 
 DHCP Server 仍然使用**广播地址作为目的地址**，因为，此时请求分配 IP 的新人还没有自己的 IP。DHCP Server 回复说，我分配了一个可用的 IP 给你，你看如何？除此之外，服务器还发送了子网掩码、网关和 IP 地址租用期等信息。
 
 如果有多个 DHCP Server，它会选择其中一个 DHCP Offer，一般是最先到达的那个，并且会向网络发送一个 **DHCP Request 广播数据包**，包中包含**客户端的 MAC 地址、接受的租约中的 IP 地址、提供此租约的 DHCP 服务器地址**等，并告诉所有 DHCP Server 它将接受哪一台服务器提供的 IP 地址，告诉其他 DHCP 服务器，谢谢你们的接纳，并请求撤销它们提供的 IP 地址，以便提供给下一个 IP 租用请求者。
 
-![](https://github.com/hanxuanliang/Blog/blob/master/Pic/DHCP Request 广播数据包.jpg)
+![](https://github.com/hanxuanliang/Blog/blob/master/Pic/DHCP-Request广播数据包.jpg)
 
 此时，由于还没有得到 DHCP Server 的最后确认，客户端仍然使用 0.0.0.0 为源 IP 地址、255.255.255.255 为目标地址进行广播。在 BOOTP 里面，接受某个 DHCP Server 的分配的 IP。
 
@@ -83,7 +83,7 @@ DHCP Server 仍然使用**广播地址作为目的地址**，因为，此时请�
 
 > 有点像3次握手，但是网络世界的东西不就是异曲同工之妙吗
 
-![](https://github.com/hanxuanliang/Blog/blob/master/Pic/DHCP Server确定.jpg)
+![](https://github.com/hanxuanliang/Blog/blob/master/Pic/DHCP-Server确定.jpg)
 
 ### IP是怎么收回的
 
@@ -94,5 +94,3 @@ DHCP Server 仍然使用**广播地址作为目的地址**，因为，此时请�
 ## 总结
 
 - DHCP 协议主要是用来给客户租用 IP 地址，和房产中介很像，要商谈、签约、续租，广播还不能“抢单”（先来先得，迟到了就下一次吧）
-
-
