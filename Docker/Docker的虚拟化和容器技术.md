@@ -10,7 +10,7 @@
 
 这里的计算机资源，包括CPU提供的**运算控制资源**。硬盘提供的**数据存储资源**，网卡提供的**网络传输资源**等等。
 
-![](https://github.com/hanxuanliang/Blog/blob/master/Pic/容器化.jpg计算机资源.jpg)
+![](https://github.com/hanxuanliang/Blog/blob/master/Pic/计算机资源.jpg)
 
 ### 为什么出现？
 
