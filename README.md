@@ -9,6 +9,10 @@
 > 坚持做自己喜欢的事儿，你在做的时候可能并不能搞清楚这些事儿对自己之后的人生有啥影响，但当你一路走来回头看时，一切都是那么清晰，就像是命中注定的一样。        —— 乔布斯
 
 ---
+#### 2019-3-30
+
+- [Ubuntu（虚拟机）配置](https://github.com/hanxuanliang/Blog/blob/master/Linux/Ubuntu_虚拟机_配置.md)
+
 #### 2019-3-28
 
 - [**Mysql中连接的原理**](https://github.com/hanxuanliang/Blog/blob/master/Mysql/连接的原理.md)
