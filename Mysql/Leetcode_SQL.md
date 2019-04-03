@@ -5,12 +5,13 @@
 ## Content
 
 >- **2019.4.3**
+>   - [**595. Big Countries**](#BigCountries)   
+>   - [**627. Swap Salary**](#SwapSalary)
+
+## BigCountries
+
+>[链接](https://leetcode.com/problems/big-countries/)
 >
->    - [**Big Countries**](#595. Big Countries)   
->    - [Swap Salary](#627. Swap Salary)
-
-## 595. [Big Countries](https://leetcode.com/problems/big-countries/)
-
 >如果一个国家的面积超过300万平方公里，或者人口超过2500万，那么这个国家就是大国家。
 
 水题一个。就是在 `where` 条件写一个 `or`  就行。
@@ -19,8 +20,10 @@
 select name, population, area from world where area > 3000000 or population > 25000000;
 ```
 
-## 627. [Swap Salary](<https://leetcode.com/problems/swap-salary/>)
+## SwapSalary
 
+> [链接](https://leetcode.com/problems/swap-salary/)
+>
 > 给定一个 `salary` 表，如下所示，有 m=男性 和 f=女性 的值 。交换所有的 f 和 m 值（例如，将所有 f 值更改为 m，反之亦然）。要求使用一个更新（Update）语句，并且没有中间临时表。
 >
 > 请注意，你必须编写一个 Update 语句，不要编写任何 Select 语句。
@@ -59,16 +62,17 @@ update salary set sex = CHAR(ASCII('f') ^ ASCII('m') ^ ASCII(sex));
 
 这里用到了异或的性质：
 
-> **交换律**：${\displaystyle p\oplus q=q\oplus p}$
+> **交换律**：![{\displaystyle p\oplus q=q\oplus p}](https://wikimedia.org/api/rest_v1/media/math/render/svg/110615f4e2eac3794ceff1a3ce124c514edcbe21)
 >
-> **恒等律**：${\displaystyle p\oplus 0=p}​$
+> **结合律**：![{\displaystyle p\oplus (q\oplus r)=(p\oplus q)\oplus r}](https://wikimedia.org/api/rest_v1/media/math/render/svg/2bd7e13889de806aef9c852cf7d4679aa869c66d)
 >
-> **归零律**：${\displaystyle p\oplus p=0}$
+> **恒等律**：![{\displaystyle p\oplus 0=p}](https://wikimedia.org/api/rest_v1/media/math/render/svg/2b51c3409f9ec2458c703a0e197a0f8be35107f6)
 >
-> **自反**：${\displaystyle p\oplus q\oplus q=p\oplus 0=p}$
+> **归零律**：![{\displaystyle p\oplus p=0}](https://wikimedia.org/api/rest_v1/media/math/render/svg/b344ce1ebeb618481da59f2894dea398cf1503aa)
+>
+> **自反**：![{\displaystyle p\oplus q\oplus q=p\oplus 0=p}](https://wikimedia.org/api/rest_v1/media/math/render/svg/62d8e0ecddcbe17c8b1fd9dbf00aff0c3083ee4e)
 
 这里可以联想在C语言里面交换两个数的奇技淫巧：
-
 ```c++
 a = a^b;
 b = a^b;
